@@ -1428,7 +1428,7 @@ importers:
         version: file:warp-drive-packages/json-api(14783ff7abfecaf4a15600481cda861e)
       '@warp-drive/schema-dsl':
         specifier: workspace:*
-        version: file:warp-drive-packages/schema-dsl
+        version: file:warp-drive-packages/schema-dsl(27d22df54f83bd8eb0d3aa6fdaf4bcdd)
       '@warp-drive/utilities':
         specifier: workspace:*
         version: file:warp-drive-packages/utilities(14783ff7abfecaf4a15600481cda861e)
@@ -3923,6 +3923,9 @@ importers:
       '@babel/preset-typescript':
         specifier: ^7.27.1
         version: 7.27.1(@babel/core@7.28.3)
+      '@warp-drive/core':
+        specifier: workspace:*
+        version: file:warp-drive-packages/core(@babel/core@7.28.3)
       '@warp-drive/internal-config':
         specifier: workspace:*
         version: file:tools/internal-config
@@ -7142,6 +7145,8 @@ packages:
 
   '@warp-drive/schema-dsl@file:warp-drive-packages/schema-dsl':
     resolution: {directory: warp-drive-packages/schema-dsl, type: directory}
+    peerDependencies:
+      '@warp-drive/core': workspace:*
 
   '@warp-drive/schema-record@file:packages/schema-record':
     resolution: {directory: packages/schema-record, type: directory}
@@ -19982,10 +19987,11 @@ snapshots:
       - '@glint/template'
       - supports-color
 
-  '@warp-drive/schema-dsl@file:warp-drive-packages/schema-dsl':
+  '@warp-drive/schema-dsl@file:warp-drive-packages/schema-dsl(27d22df54f83bd8eb0d3aa6fdaf4bcdd)':
     dependencies:
       '@babel/parser': 7.28.4
       '@babel/traverse': 7.28.4
+      '@warp-drive/core': file:warp-drive-packages/core(f9dfbf4fac3dbc0e0370b14ce6056988)
       glob: 11.0.3
     transitivePeerDependencies:
       - supports-color

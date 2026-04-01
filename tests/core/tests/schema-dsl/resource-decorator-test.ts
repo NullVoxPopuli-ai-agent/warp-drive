@@ -1,7 +1,7 @@
-import { module, setupTest, test } from '@warp-drive/diagnostic/ember';
-
-// @ts-expect-error virtual module provided by the schema-dsl vite plugin
 import schemas from 'virtual:warp-drive-schemas';
+
+import { withDefaults } from '@warp-drive/core/reactive';
+import { module, setupTest, test } from '@warp-drive/diagnostic/ember';
 
 module('Schema DSL | @Resource compilation', function (hooks) {
   setupTest(hooks);
@@ -89,6 +89,28 @@ module('Schema DSL | @Resource compilation', function (hooks) {
         { kind: 'derived', name: 'constructor', type: '@constructor' },
       ],
     });
+  });
+
+  test('@field({ sourceKey }) calling withDefaults setups up the defaults', function (assert) {
+    //   @Resource
+    //   class Product {
+    //     @field({ sourceKey: 'product_name' }) declare name: string;
+    //     @field({ type: 'number', sourceKey: 'unit_price' }) declare price: number;
+    //   }
+
+    const schema = schemas.find((s: { type: string }) => s.type === 'product');
+
+    assert.deepEqual(
+      schema,
+      withDefaults({
+        type: 'product',
+        identity: { kind: '@id', name: 'id' },
+        fields: [
+          { kind: 'field', name: 'name', sourceKey: 'product_name' },
+          { kind: 'field', name: 'price', type: 'number', sourceKey: 'unit_price' },
+        ],
+      })
+    );
   });
 
   test('@Resource({ legacy: true }) omits derived fields and sets legacy flag', function (assert) {

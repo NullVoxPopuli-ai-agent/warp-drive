@@ -31,6 +31,9 @@
       "types": "./declarations/index.d.ts",
       "default": "./dist/index.js"
     },
+    "./virtual": {
+      "types": "./virtual.d.ts"
+    },
     "./vite": {
       "default": "./src/vite-plugin.js"
     },
@@ -38,6 +41,9 @@
       "types": "./declarations/*.d.ts",
       "default": "./dist/*.js"
     }
+  },
+  "peerDependencies": {
+    "@warp-drive/core": "workspace:*"
   },
   "dependencies": {
     "@babel/parser": "^7.28.3",
@@ -49,6 +55,7 @@
     "@babel/plugin-transform-typescript": "^7.28.0",
     "@babel/preset-typescript": "^7.27.1",
     "@warp-drive/internal-config": "workspace:*",
+    "@warp-drive/core": "workspace:*",
     "typescript": "^5.9.2",
     "vite": "^7.1.3"
   },
