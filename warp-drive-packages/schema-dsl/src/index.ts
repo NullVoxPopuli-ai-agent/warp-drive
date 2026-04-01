@@ -55,7 +55,4 @@ export function field(
  */
 export function id(target: object, key: string): void;
 export function id(options: IdOptions): (target: object, key: string) => void;
-export function id(
-  _targetOrOptions?: unknown,
-  _propertyKey?: string
-): void | ((target: object, key: string) => void) {}
+export function id(_targetOrOptions?: unknown, _propertyKey?: string): void | ((target: object, key: string) => void) {}
