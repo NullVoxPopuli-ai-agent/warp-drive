@@ -1,6 +1,6 @@
-import { Resource, field } from '@warp-drive/schema-dsl';
+import { field,Resource } from '@warp-drive/schema-dsl';
 
 @Resource('person')
-class CustomUser {
+export class CustomUser {
   @field declare name: string;
 }

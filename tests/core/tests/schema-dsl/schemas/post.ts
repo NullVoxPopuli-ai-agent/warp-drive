@@ -1,7 +1,7 @@
-import { Resource, field, id } from '@warp-drive/schema-dsl';
+import { field, id,Resource } from '@warp-drive/schema-dsl';
 
 @Resource
-class Post {
+export class Post {
   @id declare uuid: string;
   @field declare title: string;
   @field({ type: 'date-time' }) declare createdAt: Date;

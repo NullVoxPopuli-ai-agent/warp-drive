@@ -1,6 +1,6 @@
-import { Resource, field } from '@warp-drive/schema-dsl';
+import { field,Resource } from '@warp-drive/schema-dsl';
 
 @Resource({ legacy: true })
-class Comment {
+export class Comment {
   @field declare body: string;
 }
